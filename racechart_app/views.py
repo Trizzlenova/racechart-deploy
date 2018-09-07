@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from requests import *
 from .models import Driver, Result, Race, Team, Standing
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from rest_framework import generics
