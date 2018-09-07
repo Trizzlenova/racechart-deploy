@@ -1,0 +1,37 @@
+{% load staticfiles %}
+
+<html>
+    <head>
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+        <meta charset="utf-8">
+        <title>Racechart</title>
+        <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Ubuntu" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/racechart.css' %}">
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="{% static 'script/api.js' %}" defer></script>
+        <script src="{% static 'script/app.js' %}" defer></script>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHLett8djBo62dDXj0EjCimF8Rd6E8cxg"></script>
+    </head>
+    <body>
+
+        <header>
+        </header>
+        <nav>
+            <img id="header_image" src="{% static 'images/racechart-logo.png' %}">
+            <div id='filler1'></div>
+            <a href="/">Home</a>
+            <a href="/drivers">Drivers</a>
+            <a href="/race">Race</a>
+            <a href="/results">Results</a>
+            <div id='filler2'></div>
+            <img id="logo" src="{% static 'images/nascar_logo.png' %}">
+        </nav>
+        {% block content %}
+        {% endblock %}
+    </body>
+    <hr />
+    <footer>
+      <h3>RaceChart is brought to you by Team FMTB</h3>
+    </footer>
+</html>

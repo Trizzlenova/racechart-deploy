@@ -1,0 +1,19 @@
+{% extends 'racechart/base.html' %}
+
+{% block content %}
+
+<h2 id="driver_name">{{ driver.full_name }}</h2>
+<ul>
+  <li id="driver_detail">
+    <b>Team:</b> {{driver.team}}<hr>
+    <b>Number:</b> {{driver.car_number}}<hr>
+    <b>Rookie Year:</b> {{driver.rookie_year}}<hr>
+    <b>Birthdate:</b> {{driver.birthday}}<hr>
+    <b>Hometown:</b> {{driver.birth_place}}<hr>
+    <b>Hobbies:</b> {{driver.hobbies}}<hr>
+    <b>Twitter:</b> {{driver.twitter}}<hr>
+  </li>
+</ul>
+
+
+{% endblock %}
