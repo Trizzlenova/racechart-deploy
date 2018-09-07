@@ -1,0 +1,385 @@
+/* NASCAR COLORS */
+/* YELLOW: #EDC240 */
+/* RED: #BC2021 */
+/* PURPLE: #88166D */
+/* BLUE: #02549E */
+/* BROWN: #2E250C */
+
+/* Use Cmmd + Shift + R in Chrome to refresh page */
+
+* {
+  box-sizing: border-box;
+  /*border: 1px solid purple;*/
+  font-family: 'Noto Sans';
+}
+
+.clearfix:after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+
+
+body {
+  background-color: #EDC240;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+aside, #driver_of_the_week, #graph, header, nav {
+  background-color: white;
+}
+
+/*=========HEADER==========*/
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin: 0 auto;
+  display: flex;
+  top: 0;
+}
+
+
+/*span {
+  font-size: 2.6em;
+  font-family: 'Permanent Marker', cursive;
+  margin: 0 auto;
+  color: #88166D;
+  text-decoration: none;
+  position: relative;
+
+}
+*/
+
+/*=========NAV==========*/
+
+nav {
+  border: .4em solid #88166D;
+  width: 100%;
+  padding: 1em;
+  margin: 0 auto;
+  /*text-align: center;*/
+  display: flex;
+}
+
+#header_image {
+  width: 140px;
+  height: 90px;
+  margin-left: 2em;
+}
+
+a:link, a:visited {
+  text-decoration: none;
+}
+
+
+a {
+  color: #BC2021;
+  font-size: 2em;
+  width: 15%;
+}
+
+nav a {
+  text-align: center;
+  margin-top: .6em;
+}
+
+#filler1 {
+  width: 10%;
+}
+
+#filler2 {
+  width: 10%;
+}
+
+#logo {
+  width: 20%;
+  height: 2.5em;
+  margin-top: 1em;
+}
+
+/*======Main=======*/
+
+#main {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  margin-bottom: 40em;
+
+}
+
+section {
+  width: 70%;
+  height: 100px;
+  margin: 0 auto;
+}
+
+h2 {
+  font-size: 5em;
+  color: white;
+  text-shadow: 4px 4px 4px #2E250C ;
+  text-align: center;
+  margin: .5em auto;
+  width: 100%;
+  margin-top: 2em;
+}
+
+/*=====Standings/Driver List=======*/
+
+aside {
+  width: 20%;
+  border: .4em solid #88166D;
+  margin-right: 1em;
+  padding-right: .5em;
+  margin-top: 9em;
+}
+
+ol {
+  margin-left: 1em;
+  font-size: 1em;
+}
+
+h4 {
+  text-align: center;
+}
+
+#standings {
+  margin: 0 auto;
+}
+
+
+#standing_list a {
+  font-size: 1.5em;
+  color: #2E250C;
+  margin: 0 1em;
+}
+
+#driver_section {
+  padding: 0;
+  margin: 0 auto;
+}
+
+#driver {
+  list-style: none;
+  text-align: center;
+  display: inline-block;
+  padding: .5em 3em 0 3em;
+  font-size: .7em;
+}
+
+
+#driver_list {
+  width: 100%;
+  display: flex;
+  text-decoration: none;
+  font-size: .8em;
+  color: #EDC240;
+  text-align: center;
+}
+
+.purple {
+  color: #88166D;
+  font-size: 3em;
+}
+
+#bio {
+  list-style: none;
+  font-size: 2em;
+}
+
+
+
+/*======Driver Detail Page=======*/
+
+#driver_name {
+  text-shadow: 5px 5px #02549E;
+}
+
+b {
+  font-size: .75em;
+  color: #BC2021;
+}
+
+#driver_detail {
+  font-size: 2em;
+  font-weight: bold;
+  color: #02549E;
+  list-style-type: none;
+}
+
+/*========Graph========*/
+
+#driver_of_the_week, #graph {
+  box-shadow: 5px 10px purple;
+}
+
+#graphed {
+  width: 100%;
+  padding-left: 5em;
+  /*background-color: #BC2021;*/
+}
+
+h1 {
+  text-align: center;
+  font-size: 5em;
+  margin: 2em auto;
+  /*text-shadow: 5px 5px purple;*/
+  color: #BC2021;
+}
+
+.line {
+  fill: none;
+  stroke: #BC2021;
+  stroke-width: 5px;
+  stroke-dasharray: 3000;
+  stroke-dashoffset: 3000;
+  -webkit-animation: line 6s linear forwards;
+          animation: line 6s linear forwards;
+}
+
+#graph {
+  display: flex;
+  width: 100%;
+  margin: 0 auto;
+  justify-content: space-between;
+  height: 450px;
+  border: #88166D .2em solid;
+}
+
+g {
+  font-size: 1em;
+}
+
+#graph-list {
+  text-align: center;
+}
+
+@-webkit-keyframes line {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes line {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+select {
+  height: 2em;
+  width: 12em;
+  font-size: 1.2em;
+  text-align: center;
+  border: .2em solid purple;
+}
+
+
+h5 {
+  font-size: 1em;
+}
+
+h3 {
+  text-align: center;
+  text-decoration: underline;
+  font-size: 2em;
+  color: #02549E;
+}
+
+/*=====Driver of the Week Section=====*/
+
+#driver_of_the_week {
+  display: flex;
+  width: 100%;
+  margin: 0 auto;
+  border: #88166D .2em solid;
+}
+
+#driverImg {
+  height: 200px;
+  margin: 0 auto;
+}
+
+#driver {
+  width: 30%;
+  margin: 0 auto;
+}
+
+p {
+  width: 75%;
+  font-size: 1.2em;
+}
+
+/*========Map=========*/
+
+#map_section {
+  margin: 2em;
+}
+
+#map {
+  height: 600px;
+  padding: 2em;
+  width: 100%;
+  margin: 3em 0 0 0 auto;
+  border: #88166D .2em solid;
+  box-shadow: 7px 7px purple;
+  position: relative;
+}
+
+#content {
+  width: 100%;
+  margin: 1em auto;
+}
+
+#bodyContent {
+  width: 100%;
+  display: flex;
+}
+
+#bodyContent img {
+  width: 100%;
+  margin: 0 auto;
+  height: 200px;
+}
+
+#content h2 {
+  font-size: 3.5em;
+  text-shadow: 3px 4px #02549E;
+  margin: 0 auto;
+  background-color: #EDC240;
+}
+
+
+#content p {
+  margin: 0 auto;
+  width: 75%;
+  font-size: 1.4em;
+}
+
+/*=======Slide Effect========*/
+
+.slide-in {
+  opacity: 0;
+  transition: all .5s;
+}
+
+.slide-in {
+  transform: translateX(-30%) scale(0.95);
+}
+
+.slide-in.active {
+  opacity: 1;
+  transform: translateX(0%) scale(1);
+}
+
+/*======Footer=======*/
+
+footer {
+  background-color: #EDC240;
+  padding: 1em;
+  display: block;
+}
