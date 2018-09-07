@@ -1,6 +1,4 @@
 from django.db import models
-from json import *
-import json
 
 class Team(models.Model):
   name = models.CharField(max_length=1000, blank=True, null=True)

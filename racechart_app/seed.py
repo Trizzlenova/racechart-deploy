@@ -1,11 +1,11 @@
 from json import *
-from racechart.models import Driver, Result, Race, Team, Standing
+from racechart_app.models import Driver, Result, Race, Team, Standing
 import json
 
+# ########################## #
+#     CLEAR THE DATABASE     #
+# ########################## #
 
-                        # ########################## #
-                        #     CLEAR THE DATABASE     #
-                        # ########################## #
 
 def clear_database():
     Driver.objects.all().delete()
@@ -15,24 +15,26 @@ def clear_database():
     Standing.objects.all().delete()
     print('cleared the database')
 
-                ######################
-                ######## TEAMS #######
-                ######################
+    ######################
+    ######## TEAMS #######
+    ######################
+
+
 def seed_teams():
-    driver_json = open('racechart/json/drivers.json').read()
+    driver_json = open('racechart_app/json/drivers.json').read()
     loaded_drivers = json.loads(driver_json)
     driver_list = loaded_drivers['drivers']
     team_array = []
     cleaned_teams = []
     for individual_driver in driver_list:
 
-## Make a Team dictionary with default values
+        ## Make a Team dictionary with default values
       team = {
-        'crew_chief': None,
-        'manufacturer': None,
-        'owner': None,
-        'name': individual_driver['team']['name'],
-        'sponsors': None,
+          'crew_chief': None,
+          'manufacturer': None,
+          'owner': None,
+          'name': individual_driver['team']['name'],
+          'sponsors': None,
       }
 
 ## Find the list of cars, replace default values
@@ -66,12 +68,14 @@ def seed_teams():
       new_team.save()
       print(new_team)
 
-                ######################
-                ####### DRIVERS ######
-                ######################
+      ######################
+      ####### DRIVERS ######
+      ######################
+
+
 def seed_drivers():
     cleaned_drivers = []
-    driver_json = open('racechart/json/drivers.json').read()
+    driver_json = open('racechart_app/json/drivers.json').read()
     loaded_drivers = json.loads(driver_json)
     driver_list = loaded_drivers['drivers']
     # iterate through each driver
@@ -79,7 +83,8 @@ def seed_drivers():
       # default value for drivers missing car data
       driver['car_number'] = None
       # array of values required for model
-      wanted_keys = ['full_name','birth_place', 'birthday', 'country', 'gender', 'height', 'hobbies', 'last_name', 'residence', 'rookie_year', 'status', 'twitter',]
+      wanted_keys = ['full_name', 'birth_place', 'birthday', 'country', 'gender', 'height',
+                     'hobbies', 'last_name', 'residence', 'rookie_year', 'status', 'twitter', ]
     #### assign teams
       team_name = driver['team']['name']
       associated_team = Team.objects.get(name=team_name)
@@ -113,22 +118,24 @@ def seed_drivers():
       new_driver.save()
       print(new_driver)
 
-                ######################
-                ######## RACES #######
-                ######################
+      ######################
+      ######## RACES #######
+      ######################
+
+
 def seed_races():
     cleaned_races = []
     i = 0
     while i < 16:
-        race_json = open(f'racechart/json/race_list/race{i}.json').read()
+        race_json = open(f'racechart_app/json/race_list/race{i}.json').read()
         loaded_race = json.loads(race_json)
-        race_name = loaded_race['name']
         loaded_race['race_number'] = None
 
         loaded_race['actual_distance'] = float(loaded_race['avg_speed'])
         loaded_race['victory_margin'] = float(loaded_race['victory_margin'])
 
-        wanted_keys = ['name','drivers','actual_distance','avg_speed','caution_laps','cautions','condition','distance','elapsed_time','laps','laps_completed','lead_changes','scheduled_time','start_time','end_time', 'track', 'victory_margin', 'number', 'flags']
+        wanted_keys = ['name', 'drivers', 'actual_distance', 'avg_speed', 'caution_laps', 'cautions', 'condition', 'distance', 'elapsed_time',
+                       'laps', 'laps_completed', 'lead_changes', 'scheduled_time', 'start_time', 'end_time', 'track', 'victory_margin', 'number', 'flags']
 
         for key in loaded_race:
             if key == 'flags':
@@ -163,16 +170,15 @@ def seed_races():
         new_race = Race.create(cleaned_race)
         new_race.save()
 
+        ######################
+        ####### RESULTS ######
+        ######################
 
-                ######################
-                ####### RESULTS ######
-                ######################
 
 def seed_results():
-    cleaned_results = []
     i = 0
     while i < 16:
-      race_json = open(f'racechart/json/race_list/race{i}.json').read()
+      race_json = open(f'racechart_app/json/race_list/race{i}.json').read()
       loaded_race = json.loads(race_json)
       results = loaded_race['results']
 
@@ -181,9 +187,11 @@ def seed_results():
           if rating == None:
               result['driver_rating'] = None
   # Switch triggers if driver exists in database. This is to avoid No Matching Query error
-          driver_binary = len(Driver.objects.filter(full_name=result['driver']['full_name']))
+          driver_binary = len(Driver.objects.filter(
+              full_name=result['driver']['full_name']))
           if driver_binary == 1:
-              result['driver'] = Driver.objects.get(full_name=result['driver']['full_name'])
+              result['driver'] = Driver.objects.get(
+                  full_name=result['driver']['full_name'])
               result['race'] = Race.objects.all()[i]
               result['pit_stops'] = len(result['pit_stops'])
 
@@ -197,17 +205,19 @@ def seed_results():
               print(new_result)
       i = i + 1
 
-                ######################
-                ###### STANDINGS #####
-                ######################
+      ######################
+      ###### STANDINGS #####
+      ######################
+
 
 def seed_standings():
-    standings_json = open('racechart/json/standings.json').read()
+    standings_json = open('racechart_app/json/standings.json').read()
     loaded_standings = json.loads(standings_json)
     driver_standings = loaded_standings['drivers']
 
     for standing in driver_standings:
-        standing['driver'] = Driver.objects.get(full_name=standing['full_name'])
+        standing['driver'] = Driver.objects.get(
+            full_name=standing['full_name'])
 
         for key in standing:
             if type(standing[key]) == float:
@@ -217,9 +227,10 @@ def seed_standings():
         new_standing.save()
         print(new_standing)
 
-                ######################
-               # SEED ENTIRE DATABASE #
-                ######################
+        ######################
+        # SEED ENTIRE DATABASE #
+        ######################
+
 
 def seed_database():
     clear_database()
