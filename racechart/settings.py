@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'racechart_app',
     'django_extensions',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
