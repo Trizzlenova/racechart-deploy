@@ -6,27 +6,32 @@
         <meta charset="utf-8">
         <title>Racechart</title>
         <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Ubuntu" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/racechart.css' %}">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+            crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/index.css' %}">
         <script src="https://d3js.org/d3.v4.min.js"></script>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
         <script src="{% static 'script/api.js' %}" defer></script>
         <script src="{% static 'script/app.js' %}" defer></script>
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key="></script>
     </head>
     <body>
 
-        <header>
-        </header>
-        <nav>
-            <img id="header_image" src="{% static 'images/racechart-logo.png' %}">
-            <div id='filler1'></div>
-            <a href="/">Home</a>
-            <a href="/drivers">Drivers</a>
-            <a href="/race">Race</a>
-            <a href="/results">Results</a>
-            <div id='filler2'></div>
+        <header class="header-nav">
+            <img id="header-image" src="{% static 'images/racechart-logo.png' %}">
+            <nav>
+                <a href="/">Home</a>
+                <a href="/drivers">Drivers</a>
+                <a href="/race">Race</a>
+                <a href="/results">Results</a>
+            </nav>
             <img id="logo" src="{% static 'images/nascar_logo.png' %}">
-        </nav>
+        </header>
+        <header class="hamburger">
+            <i class="fas fa-bars"></i>
+        </header>
         {% block content %}
         {% endblock %}
     </body>

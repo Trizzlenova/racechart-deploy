@@ -9,7 +9,6 @@
 
 * {
   box-sizing: border-box;
-  /*border: 1px solid purple;*/
   font-family: 'Noto Sans';
 }
 
@@ -22,7 +21,7 @@
 
 
 body {
-  background-color: #EDC240;
+  background-color: #FFFFFF;
   width: 100%;
   margin: 0 auto;
   box-sizing: border-box;
@@ -44,17 +43,17 @@ header {
 }
 
 
-/*span {
-  font-size: 2.6em;
-  font-family: 'Permanent Marker', cursive;
-  margin: 0 auto;
-  color: #88166D;
-  text-decoration: none;
-  position: relative;
+/*=========TITLES==========*/
 
+.title {
+  font-size: 2em;
+  color: #EDC240;
+  text-shadow: 2px 2px 2px #2E250C ;
+  text-align: center;
+  margin: .5em auto;
+  width: 100%;
+  margin-top: 2em;
 }
-*/
-
 /*=========NAV==========*/
 
 nav {
@@ -118,15 +117,6 @@ section {
   margin: 0 auto;
 }
 
-h2 {
-  font-size: 5em;
-  color: white;
-  text-shadow: 4px 4px 4px #2E250C ;
-  text-align: center;
-  margin: .5em auto;
-  width: 100%;
-  margin-top: 2em;
-}
 
 /*=====Standings/Driver List=======*/
 
@@ -152,10 +142,16 @@ h4 {
 }
 
 
-#standing_list a {
-  font-size: 1.5em;
-  color: #2E250C;
+.driver-link {
+  color: black;
+  font-size: 0.8em;
   margin: 0 1em;
+}
+
+.driver-link:hover {
+  color: blue;
+  font-size: 0.9em;
+  text-shadow: 0.5px 0.5px 0.5px grey;
 }
 
 #driver_section {
@@ -181,10 +177,6 @@ h4 {
   text-align: center;
 }
 
-.purple {
-  color: #88166D;
-  font-size: 3em;
-}
 
 #bio {
   list-style: none;
@@ -195,9 +187,6 @@ h4 {
 
 /*======Driver Detail Page=======*/
 
-#driver_name {
-  text-shadow: 5px 5px #02549E;
-}
 
 b {
   font-size: .75em;
@@ -213,21 +202,17 @@ b {
 
 /*========Graph========*/
 
-#driver_of_the_week, #graph {
-  box-shadow: 5px 10px purple;
-}
+
 
 #graphed {
   width: 100%;
   padding-left: 5em;
-  /*background-color: #BC2021;*/
 }
 
-h1 {
+.driver-select {
   text-align: center;
   font-size: 5em;
   margin: 2em auto;
-  /*text-shadow: 5px 5px purple;*/
   color: #BC2021;
 }
 
@@ -247,7 +232,7 @@ h1 {
   margin: 0 auto;
   justify-content: space-between;
   height: 450px;
-  border: #88166D .2em solid;
+  border: 2px solid black;
 }
 
 g {
@@ -275,7 +260,7 @@ select {
   width: 12em;
   font-size: 1.2em;
   text-align: center;
-  border: .2em solid purple;
+  border: 2px solid black;
 }
 
 
@@ -283,12 +268,6 @@ h5 {
   font-size: 1em;
 }
 
-h3 {
-  text-align: center;
-  text-decoration: underline;
-  font-size: 2em;
-  color: #02549E;
-}
 
 /*=====Driver of the Week Section=====*/
 
@@ -296,7 +275,7 @@ h3 {
   display: flex;
   width: 100%;
   margin: 0 auto;
-  border: #88166D .2em solid;
+  border: 2px solid black;
 }
 
 #driverImg {
@@ -326,7 +305,6 @@ p {
   width: 100%;
   margin: 3em 0 0 0 auto;
   border: #88166D .2em solid;
-  box-shadow: 7px 7px purple;
   position: relative;
 }
 
@@ -348,7 +326,6 @@ p {
 
 #content h2 {
   font-size: 3.5em;
-  text-shadow: 3px 4px #02549E;
   margin: 0 auto;
   background-color: #EDC240;
 }

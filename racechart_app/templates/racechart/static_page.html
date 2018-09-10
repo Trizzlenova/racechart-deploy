@@ -2,15 +2,12 @@
 {% load staticfiles %}
 
 {% block content %}
-<script
-src="https://code.jquery.com/jquery-3.3.1.min.js"
-integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-crossorigin="anonymous"></script>
+
 <script src="{% static 'script/map.js' %}" defer></script>
 
 <div id="main">
   <section id='graphSection'>
-    <h2>Driver Performance</h2>
+    <h3 class="title">Driver Performance</h3>
     <form id="graph-list">
       <select id='driveFunction' onchange="getId(this)">
         <option selected disabled hidden>Drivers</option>
@@ -23,10 +20,10 @@ crossorigin="anonymous"></script>
     </form>
     <section class='slide-in' id="graph">
       <div id='graphed'>
-        <h1>Select a Driver!</h1>
+        <h1 class="driver-select">Select a Driver!</h1>
       </div>
     </section>
-    <h2>Driver of the Week</h2>
+    <h3 class="title">Driver of the Week</h3>
     <div class='slide-in' id="driver_of_the_week">
       <img id="driverImg" src="{% static 'images/kyle_busch.png' %}"/>
       <p>Kyle Busch Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -37,18 +34,18 @@ crossorigin="anonymous"></script>
       proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </p>
     </div>
-    <h2>Race Map</h2>
+    <h3 class="title">Race Map</h3>
     <div class='slide-in' id='map_section'>
       <div id='map'>
       </div>
   </section>
   <aside>
     <div id="standings">
-      <h3>Standings</h3>
+      <h3 class="title">Standings</h3>
       <ol>
         {% for standing in standings %}
         <li id='standing_list'>
-          <a href="{% url 'driver_detail' pk=standing.driver.pk %}">
+          <a class="driver-link" href="{% url 'driver_detail' pk=standing.driver.pk %}">
             {{standing.full_name}}
           </a>
         </li>
