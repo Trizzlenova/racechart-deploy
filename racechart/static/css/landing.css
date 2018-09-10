@@ -7,7 +7,6 @@
 }
 
 #sections {
-  border: 2px solid pink;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,13 +20,92 @@
   flex-direction: column;
   align-items: center;
   border: 2px solid black;
+  margin: 16px auto;
 }
 
 /* Graph Section */
 
+#graph-section {
+  max-width: 100%;
+  min-width: 100%;
+}
 /* Driver of the Week Section */
 
+#driver_of_the_week {
+  display: flex;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+#driverImg {
+  height: 200px;
+  margin: 0 auto;
+}
+
+#driver {
+  width: 30%;
+  margin: 0 auto;
+}
+
+.driver-bio {
+  width: 70%;
+  font-size: 0.9em;
+  margin: auto 1em;
+}
 /* Map Section */
+
+#map-section {
+  width: 100%;
+}
+#map {
+  height: 475px;
+  padding: 2em;
+  width: 600px;
+  
+}
+
+#content {
+  width: 100%;
+  margin: 1em auto;
+}
+
+#bodyContent {
+  width: 100%;
+  display: flex;
+}
+
+#bodyContent img {
+  width: 100%;
+  margin: 0 auto;
+  height: 200px;
+}
+
+#content h2 {
+  font-size: 3.5em;
+  margin: 0 auto;
+  background-color: #EDC240;
+}
+
+
+#content p {
+  margin: 0 auto;
+  width: 75%;
+  font-size: 1.4em;
+}
+
+.slide-in {
+  opacity: 0;
+  transition: all .5s;
+}
+
+.slide-in {
+  transform: translateX(-30%) scale(0.95);
+}
+
+.slide-in.active {
+  opacity: 1;
+  transform: translateX(0%) scale(1);
+}
 
 /* Aside */
 
