@@ -79,9 +79,7 @@ const createGraph = (data) => {
     .call(d3.axisBottom(x));
   
   svg.append("text")
-    .attr("x", "300px")
-    // .attr("dy", "1em")
-    .attr("y", "390px")
+    .attr("transform", "translate(300, 390)")
     .text("Race Date");
   
 
@@ -89,8 +87,7 @@ const createGraph = (data) => {
   svg.append("g")
       .call(d3.axisLeft(y));
   svg.append("text")
-      .attr("dx", "5.5em")
-      .attr("dy", "-0.8em")
+      .attr("transform", "translate(70, -10)")
       .style("text-anchor", "end")
       .text("Finishing Position");
 }
