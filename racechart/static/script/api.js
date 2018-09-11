@@ -6,6 +6,7 @@ const getRaces = () => {
       raceData.push(response.data[i])
     }
   })
+  .catch(error => console.log(error))
 }
 
 let driverInfo = [];
@@ -16,4 +17,9 @@ const getResults = () => {
       driverInfo.push(response.data[i])
     }
   })
+  .catch(error => console.log(error))
 }
+
+getRaces();
+getResults();
+

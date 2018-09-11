@@ -1,10 +1,6 @@
-// Grab data from api.js
-getRaces();
-getResults();
-
 
 // Form Graph
-const createGraph = (data, graph) => {
+const createGraph = (data) => {
   // set the dimensions and margins of the graph
   let margin = { top: 20, right: 20, bottom: 30, left: 50 },
     width = 750 - margin.left - margin.right,
@@ -17,10 +13,22 @@ const createGraph = (data, graph) => {
   let x = d3.scaleTime().range([0, width]);
   let y = d3.scaleLinear().range([height, 0]);
 
+  // gridlines in x axis function
+  function make_x_gridlines() {
+    return d3.axisBottom(x)
+      .ticks(12)
+  }
+
+  // gridlines in y axis function
+  function make_y_gridlines() {
+    return d3.axisLeft(y)
+      .ticks(33)
+  }
+
   // define the line
   let valueline = d3.line()
-    .x(function (d) { return x(d.date); })
-    .y(function (d) { return y(d.rank); });
+    .x(d => x(d.date))
+    .y(d => y(d.rank))
 
   // append the svg obgect to the body of the page
   // appends a 'group' element to 'svg'
@@ -37,6 +45,24 @@ const createGraph = (data, graph) => {
   x.domain(d3.extent(data, function (d) { return d.date; }));
   y.domain([0, d3.max(data, function (d) { return d.rank; })]);
 
+
+  // add the X gridlines
+  svg.append("g")
+    .attr("class", "grid")
+    .attr("transform", "translate(0," + height + ")")
+    .call(make_x_gridlines()
+      .tickSize(-height)
+      .tickFormat("")
+    )
+
+  // add the Y gridlines
+  svg.append("g")
+    .attr("class", "grid")
+    .call(make_y_gridlines()
+      .tickSize(-width)
+      .tickFormat("")
+    )
+
   // Add the valueline path.
   svg.append("path")
     .data([data])
@@ -48,21 +74,33 @@ const createGraph = (data, graph) => {
     .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x));
 
+  svg.append("text")
+    .attr("transform", "translate(300, 390)")
+    .text("Race Date");
+
+
   // Add the Y Axis
   svg.append("g")
     .call(d3.axisLeft(y));
   svg.append("text")
-    .attr("transform", "rotate(-90)")
-    .attr("y", 6)
-    .attr("dy", "1em")
-    .style("text-anchor", "end")
+    .attr("transform", "translate(-25, -10)")
     .text("Finishing Position");
 }
+// Select Driver from list in aside
 
+const makeSelection = driver => {
+  let data = [];
+  let selectedDriver = driverId[driverId.selectedIndex].id;
+
+  // Clear old graph on new selection
+  $('#graphed').empty();
+
+
+}
 // Get Driver Id from selector and display graph
 const getId = (driverId) => {
   let data = [];
-  selectedDriver = driverId[driverId.selectedIndex].id;
+  let selectedDriver = driverId[driverId.selectedIndex].id;
   $('#graphed').empty();
 
   for (let i = 0; i < driverInfo.length; i++) {
@@ -86,39 +124,3 @@ const getId = (driverId) => {
   }
   createGraph(data);
 }
-
-
-//====Slide in display=====
-
-
-// debounce function by https://davidwalsh.name/javascript-debounce-function
-function debounce(func, wait, immediate) {
-  var timeout;
-  return function () {
-    var context = this, args = arguments;
-    var later = function () {
-      timeout = null;
-      if (!immediate) func.apply(context, args);
-    };
-    var callNow = immediate && !timeout;
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-    if (callNow) func.apply(context, args);
-  };
-};
-
-const slider = document.querySelectorAll('.slide-in');
-function checkSlide(e) {
-  slider.forEach(slide => {
-    const slideInAt = (window.scrollY + window.innerHeight) - slide.scrollHeight / 2;
-    const sliderBottom = slide.offsetTop + slide.scrollHeight;
-    const halfRevealed = slideInAt > slide.offsetTop;
-    const isntScrolled = window.scrollY < sliderBottom;
-    if (halfRevealed && isntScrolled) {
-      slide.classList.add('active');
-    } else {
-      slide.classList.remove('active')
-    }
-  })
-}
-window.addEventListener('scroll', debounce(checkSlide))

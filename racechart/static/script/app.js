@@ -90,11 +90,18 @@ const createGraph = (data) => {
       .attr("transform", "translate(-25, -10)")
       .text("Finishing Position");
 }
+// Select Driver from list in aside
 
+const makeSelection = driver => {
+  let data = [];
+  selectedDriver = driverId[driverId.selectedIndex].id;
+  $('#graphed').empty();
+}
 // Get Driver Id from selector and display graph
 const getId = (driverId) => {
   let data = [];
-  selectedDriver = driverId[driverId.selectedIndex].id;
+  let selectedDriver = driverId[driverId.selectedIndex].id;
+  console.log(selectedDriver)
   $('#graphed').empty();
 
   for(let i = 0; i < driverInfo.length; i++) {
