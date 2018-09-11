@@ -7,7 +7,7 @@ body {
 /* Header Styles */
 
 .header-nav {
-  border: 2px solid black;
+  border-bottom: 2px solid black;
   width: 100%;
   display: flex;
   justify-content: space-around;
