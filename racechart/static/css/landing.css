@@ -74,6 +74,10 @@
   text-align: center;
 }
 
+.tick text {
+  font-size: 10px;
+}
+
 @-webkit-keyframes line {
   to {
     stroke-dashoffset: 0;
@@ -187,16 +191,12 @@ h5 {
 }
 
 #standings-aside li {
-  font-size: 0.8em;
+  font-size: 12px;
 }
 
-.driver-link:link, .driver-link:visited {
-  text-decoration: none;
-  color: black;
-  font-size: 0.9em;
-}
-
-.driver-link:hover {
-  font-size: 1em;
-  text-shadow: 0.5px 0.5px 0.5px grey;
+#standings-aside li:hover, #selected-driver {
+  color: rgb(31, 119, 192);
+  font-size: 14px;
+  text-shadow: 0.25px 0.25px 0.25px lightgrey;
+  cursor: pointer;
 }

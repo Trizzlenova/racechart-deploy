@@ -3,7 +3,7 @@
 
 {% block content %}
 
-<script src="{% static 'script/map.js' %}" defer></script>
+<!-- <script src="{% static 'script/map.js' %}" defer></script> -->
 
 <div id="main">
   <div id="sections">
@@ -48,13 +48,11 @@
     </section>
   </div>
   <aside id="standings-aside">
-    <h3 class="title">Standings</h3>
+    <h3 class="title">Drivers</h3>
     <ol>
       {% for standing in standings %}
       <li>
-        <a class="driver-link" href="{% url 'driver_detail' pk=standing.driver.pk %}">
-          {{standing.full_name}}
-        </a>
+        {{standing.full_name}}
       </li>
       {% endfor %}
     </ol>

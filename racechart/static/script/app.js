@@ -31,8 +31,8 @@ const createGraph = (data) => {
 
   // define the line
   let valueline = d3.line()
-      .x(function(d) { return x(d.date); })
-      .y(function(d) { return y(d.rank); });
+      .x(d => x(d.date))
+      .y(d => y(d.rank))
 
   // append the svg obgect to the body of the page
   // appends a 'group' element to 'svg'
@@ -87,8 +87,7 @@ const createGraph = (data) => {
   svg.append("g")
       .call(d3.axisLeft(y));
   svg.append("text")
-      .attr("transform", "translate(70, -10)")
-      .style("text-anchor", "end")
+      .attr("transform", "translate(-25, -10)")
       .text("Finishing Position");
 }
 
