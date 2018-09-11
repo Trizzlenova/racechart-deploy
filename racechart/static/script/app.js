@@ -77,14 +77,20 @@ const createGraph = (data) => {
   svg.append("g")
     .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x));
+  
+  svg.append("text")
+    .attr("x", "300px")
+    // .attr("dy", "1em")
+    .attr("y", "390px")
+    .text("Race Date");
+  
 
   // Add the Y Axis
   svg.append("g")
       .call(d3.axisLeft(y));
   svg.append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 6)
-      .attr("dy", "1em")
+      .attr("dx", "5.5em")
+      .attr("dy", "-0.8em")
       .style("text-anchor", "end")
       .text("Finishing Position");
 }

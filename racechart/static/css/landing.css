@@ -63,9 +63,11 @@
   justify-content: space-between;
   height: 450px;
 }
-
-g {
-  font-size: 1em;
+#graphed svg {
+  padding-bottom: 60px;
+}
+#graphed svg g {
+  font-size: 12px;
 }
 
 #graph-list {
