@@ -197,6 +197,7 @@ h5 {
 #standings-aside li:hover, .selected-driver {
   color: rgb(31, 119, 192);
   font-size: 14px;
+  font-weight: 700;
   text-shadow: 0.25px 0.25px 0.25px lightgrey;
   cursor: pointer;
 }

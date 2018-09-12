@@ -106,17 +106,12 @@ const makeSelection = driverId => {
     driverSelected.setAttribute('class', '');
   }
   driverId.setAttribute('class', 'selected-driver');
-}
-// Get Driver Id from selector and display graph
-const getId = (driverId) => {
-  let data = [];
-  let selectedDriver = driverId[driverId.selectedIndex].id;
-  $('#graphed').empty();
 
+  // Find matching driver in data, create graph for selected driver
   for (let i = 0; i < driverInfo.length; i++) {
     if (selectedDriver == driverInfo[i].driver) {
       raceData.forEach((raceInfo) => {
-        let position = driverInfo[i].position
+        let position = driverInfo[i].position;
         if (raceInfo.id === driverInfo[i].race) {
           let year = parseInt(raceInfo.start_time.substring(0, 4));
           let month = parseInt(raceInfo.start_time.substring(5, 7));
@@ -129,6 +124,8 @@ const getId = (driverId) => {
       })
       data.forEach(d => d.rank =+ d.rank);
     };
-  }
+  };
   createGraph(data);
 }
+
+
