@@ -86,16 +86,26 @@ const createGraph = (data) => {
     .attr("transform", "translate(-25, -10)")
     .text("Finishing Position");
 }
+
+
 // Select Driver from list in aside
 
-const makeSelection = driver => {
+const makeSelection = driverId => {
   let data = [];
-  let selectedDriver = driverId[driverId.selectedIndex].id;
+  let selectedDriver = driverId.id;
+  // Check if there is already a driver selected
+  let driverSelected = document.getElementsByClassName('selected-driver')[0] 
+    ? document.getElementsByClassName('selected-driver')[0]
+    : null; 
 
   // Clear old graph on new selection
   $('#graphed').empty();
 
-
+  // Clear old selected driver and set new one
+  if (driverSelected) {
+    driverSelected.setAttribute('class', '');
+  }
+  driverId.setAttribute('class', 'selected-driver');
 }
 // Get Driver Id from selector and display graph
 const getId = (driverId) => {
@@ -117,9 +127,7 @@ const getId = (driverId) => {
           data.push({ 'date': startDate, 'rank': position });
         }
       })
-      data.forEach(function (d) {
-        d.rank = +d.rank;
-      });
+      data.forEach(d => d.rank =+ d.rank);
     };
   }
   createGraph(data);

@@ -3,8 +3,6 @@
 
 {% block content %}
 
-<!-- <script src="{% static 'script/map.js' %}" defer></script> -->
-
 <div id="main">
   <div id="sections">
     <section class="landing-section" id='graph-section'>
@@ -49,9 +47,9 @@
   </div>
   <aside id="standings-aside">
     <h3 class="title">Drivers</h3>
-    <ol>
+    <ol id="standings-list">
       {% for standing in standings %}
-      <li>
+      <li id="{{ standing.driver.pk }}" onclick="makeSelection(this)">
         {{standing.full_name}}
       </li>
       {% endfor %}
