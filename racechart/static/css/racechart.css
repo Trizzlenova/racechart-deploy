@@ -43,18 +43,6 @@ header {
   top: 0;
 }
 
-
-/*span {
-  font-size: 2.6em;
-  font-family: 'Permanent Marker', cursive;
-  margin: 0 auto;
-  color: #88166D;
-  text-decoration: none;
-  position: relative;
-
-}
-*/
-
 /*=========NAV==========*/
 
 nav {
@@ -62,7 +50,6 @@ nav {
   width: 100%;
   padding: 1em;
   margin: 0 auto;
-  /*text-align: center;*/
   display: flex;
 }
 
@@ -153,7 +140,7 @@ h4 {
 
 
 #standing_list a {
-  font-size: 1.5em;
+  font-size: 1.2em;
   color: #2E250C;
   margin: 0 1em;
 }
