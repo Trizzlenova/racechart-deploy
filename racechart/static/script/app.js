@@ -31,5 +31,4 @@ function checkSlide(e){
     }
   })
 }
-// window.addEventListener('scroll', debounce(checkSlide))
-window.onload(debounce(checkSlide));
+window.addEventListener('load', debounce(checkSlide))
