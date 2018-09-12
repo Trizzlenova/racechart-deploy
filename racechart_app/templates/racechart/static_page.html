@@ -6,17 +6,13 @@
 <div id="main">
   <div id="sections">
     <section class="landing-section" id='graph-section'>
-      <h3 class="title">Driver Performance</h3>
-      <form id="graph-list">
-        <select id='driveFunction' onchange="getId(this)">
-          <option selected disabled hidden>Drivers</option>
-          {% for standing in standings %}
-          <option id='{{ standing.driver.pk }}'>
-            {{ standing.driver }}
-          </option>
-          {% endfor %}
+      <h3>Current Season Standings</h3>
+      <!-- <form id="graph-list">
+        <select id='driveFunction'>
+          
+          <option>Current Season Standings</option>
         </select>
-      </form>
+      </form> -->
       <section class='slide-in' id="graph">
         <div id='graphed'>
           <h1 class="driver-select">Select a Driver!</h1>
