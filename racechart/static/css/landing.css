@@ -1,0 +1,203 @@
+/* Main Container */
+
+#main {
+  display: flex;
+  flex-direction: row;
+  margin-top: 40px;
+}
+
+#sections {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 76%;
+  margin: 10px 2%;
+}
+
+
+.landing-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid black;
+  margin: 16px auto;
+}
+
+/* Graph Section */
+
+#graph-section {
+  max-width: 100%;
+  min-width: 100%;
+}
+#graphed {
+  width: 100%;
+}
+
+.driver-select {
+  text-align: center;
+  font-size: 2em;
+  margin: 2em auto;
+  color: #BC2021;
+}
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 2px;
+  stroke-dasharray: 3000;
+  stroke-dashoffset: 3000;
+  -webkit-animation: line 3s linear forwards;
+          animation: line 3s linear forwards;
+}
+
+.grid line {
+  stroke: lightgrey;
+  stroke-opacity: 0.7;
+  shape-rendering: crispEdges;
+}
+
+#graph {
+  display: flex;
+  width: 100%;
+  margin: 0 auto;
+  justify-content: space-between;
+  height: 450px;
+}
+#graphed svg {
+  padding-bottom: 60px;
+}
+#graphed svg g {
+  font-size: 12px;
+}
+
+#graph-list {
+  text-align: center;
+}
+
+.tick text {
+  font-size: 10px;
+}
+
+@-webkit-keyframes line {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes line {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+select {
+  height: 2em;
+  width: 12em;
+  font-size: 1em;
+  text-align: center;
+}
+
+
+h5 {
+  font-size: 1em;
+}
+/* Driver of the Week Section */
+
+#driver_of_the_week {
+  display: flex;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+#driverImg {
+  height: 200px;
+  margin: 0 auto;
+}
+
+#driver {
+  width: 30%;
+  margin: 0 auto;
+}
+
+.driver-bio {
+  width: 70%;
+  font-size: 0.9em;
+  margin: auto 1em;
+}
+/* Map Section */
+
+#map-section {
+  width: 100%;
+}
+#map {
+  height: 475px;
+  padding: 2em;
+  width: 600px;
+  
+}
+
+#content {
+  width: 100%;
+  margin: 1em auto;
+}
+
+#bodyContent {
+  width: 100%;
+  display: flex;
+}
+
+#bodyContent img {
+  width: 100%;
+  margin: 0 auto;
+  height: 200px;
+}
+
+#content h2 {
+  font-size: 3.5em;
+  margin: 0 auto;
+  background-color: #EDC240;
+}
+
+
+#content p {
+  margin: 0 auto;
+  width: 75%;
+  font-size: 1.4em;
+}
+
+.slide-in {
+  opacity: 0;
+  transition: all .5s;
+}
+
+.slide-in {
+  transform: translateX(-30%) scale(0.95);
+}
+
+.slide-in.active {
+  opacity: 1;
+  transform: translateX(0%) scale(1);
+}
+
+/* Aside */
+
+#standings-aside {
+  width: 18%;
+  margin: 10px 2%;
+}
+
+#standings-aside h3 {
+  text-align: center;
+}
+
+#standings-aside li {
+  font-size: 12px;
+}
+
+#standings-aside li:hover, .selected-driver {
+  color: rgb(31, 119, 192);
+  font-size: 14px;
+  font-weight: 700;
+  text-shadow: 0.25px 0.25px 0.25px lightgrey;
+  cursor: pointer;
+}

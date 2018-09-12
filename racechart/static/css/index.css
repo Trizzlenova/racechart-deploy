@@ -1,0 +1,78 @@
+body {
+  box-sizing: border-box;
+  font-family: "Noto Sans";
+}
+
+
+/* Header Styles */
+
+.header-nav {
+  border-bottom: 2px solid black;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.header-nav nav {
+  display: flex;
+  width: 66%;
+  padding: 1em;
+  margin: 0 auto;
+  justify-content: space-around;
+}
+
+.header-nav a {
+  margin: auto;
+  color: #BC2021;
+  font-size: 1.618em;
+}
+
+a:link, a:visited {
+  text-decoration: none;
+}
+
+/* Header Images */
+
+#header-image {
+  width: 16.67%;
+  min-width: 140px;
+  height: 90px;
+  margin-left: 2em;
+}
+
+#logo {
+  width: 20%;
+  min-width: 140px;
+  height: 2.5em;
+  margin-top: 1em;
+}
+
+.hamburger {
+  display: none;
+}
+
+/* Responsivity */
+
+@media screen and (max-width: 660px) {
+  .header-nav {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+    font-size: 30px;
+    font-weight: 300;
+    position: fixed;
+    top: 10;
+    left: 10;
+    z-index: 40;
+  }
+}
+
+/* Footer */
+
+footer {
+  border-top: 2px solid black;
+  padding: 1em;
+  display: block;
+}
